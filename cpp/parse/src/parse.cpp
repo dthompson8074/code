@@ -14,18 +14,27 @@
 
 using namespace std;
 
+
 int main() {
 
 
-	cin.get(lex);
 
 
-
+	get_char();
 	while(lex != '\n'){
-		if (B())
-				cout<<"syntax correct";
 
-		cout << lex<< endl;
+		if (B())
+		{
+				cout<<"syntax correct"<<endl;
+				cout << "boolean statement evaluation: "<< endl;
+		}
+		else
+		{
+			cout<<"syntax error"<<endl;
+			break;
+		}
+
+
 		cin.get(lex);
 
 	}
