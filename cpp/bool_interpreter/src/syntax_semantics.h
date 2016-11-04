@@ -5,11 +5,12 @@
  *      Author: David Thompson
  */
 
-#ifndef SYNTAX_H_
-#define SYNTAX_H_
+#ifndef SYNTAX_SEMANTICS_H_
+#define SYNTAX_SEMANTICS_H_
 using namespace std;
 
 char lex;
+char a0,a1;
 std::stack<char> s;
 
 bool B();			// bool statement
@@ -28,6 +29,8 @@ void get_char(void)
 	while(lex == ' ')
 		cin.get(lex);
 }
+
+
 
 
 //Syntax Definitions
@@ -72,7 +75,19 @@ bool L()
 	{
 		get_char();
 		if (L())
+		{
+
+//semantic eval of NEGATION
+
+			a0 = s.top();
+			s.pop();
+			if (a0 == 'T')
+				s.push('F');
+			else
+				s.push('T');
+
 			return true;
+		}
 		else
 			return false;
 	}
@@ -89,6 +104,18 @@ bool AT_Tail()
 		get_char();
 		if (L())
 		{
+//semantic eval of AND
+
+			a0 = s.top();
+			s.pop();
+			a1 = s.top();
+			s.pop();
+
+			if (a0 == 'T'&&a1 == 'T')
+				s.push('T');
+			else
+				s.push('F');
+
 			if (AT_Tail())
 				return true;
 			else
@@ -124,6 +151,18 @@ bool OT_Tail()
 		get_char();
 		if (AT())
 		{
+//semantic eval of OR
+
+			a0 = s.top();
+			s.pop();
+			a1 = s.top();
+			s.pop();
+
+			if (a0 == 'T'||a1 == 'T')
+				s.push('T');
+			else
+				s.push('F');
+
 			if (OT_Tail())
 				return true;
 			else
@@ -163,7 +202,21 @@ bool IT_Tail()
 			get_char();
 			if (OT())
 			{
+//semantic eval of IMPLY
+
+			a0 = s.top();
+			s.pop();
+			a1 = s.top();
+			s.pop();
+
+			if (a0 == 'F'&&a1 == 'T')
+				s.push('F');
+			else
+				s.push('T');
+
+
 				if (IT_Tail())
+
 					return true;
 				else
 					return false;
@@ -212,4 +265,4 @@ bool B()
 }
 
 
-#endif /* SYNTAX_H_ */
+#endif /* SYNTAX_SEMANTICS_H_ */

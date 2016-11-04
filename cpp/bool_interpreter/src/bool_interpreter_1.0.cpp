@@ -8,7 +8,8 @@
 
 #include <iostream>
 #include <stack>
-#include "syntax.h"
+
+#include "syntax_semantics.h"
 
 
 
@@ -18,22 +19,19 @@ using namespace std;
 int main() {
 
 
-
-
 	get_char();
 	while(lex != '\n'){
 
 		if (B())
 		{
 				cout<<"syntax correct"<<endl;
-				cout << "boolean statement evaluation: "<< endl;
+				cout << "boolean statement evaluation: "<< s.top()<< endl;
 		}
 		else
 		{
 			cout<<"syntax error"<<endl;
 			break;
 		}
-
 
 		cin.get(lex);
 

@@ -4,13 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/parse.cpp 
+../src/bool_interpreter_1.0.cpp 
 
 OBJS += \
-./src/parse.o 
+./src/bool_interpreter_1.0.o 
 
 CPP_DEPS += \
-./src/parse.d 
+./src/bool_interpreter_1.0.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
