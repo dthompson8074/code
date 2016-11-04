@@ -1,19 +1,24 @@
-/*
- * syntax.h
- *
- *  Created on: Oct 27, 2016
- *      Author: David Thompson
- */
+//============================================================================
+// Name        : syntax_semantics.cpp
+// Author      : David Thompson
+// Language    : C++
+// Compiler    : GCC C++
+// Description : Haader File
+//============================================================================
 
 #ifndef SYNTAX_SEMANTICS_H_
 #define SYNTAX_SEMANTICS_H_
 using namespace std;
 
+//global variables
+
 char lex;
 char a0,a1;
 std::stack<char> s;
 
-bool B();			// bool statement
+//Syntax Prototypes
+
+bool B();			// Bool statement
 bool IT();			// Imply Term
 bool OT(); 			//: Or term
 bool AT();			// And term
@@ -23,6 +28,8 @@ bool AT_Tail();		// : And tail
 bool L(); 			// Literal
 bool A();			//Atom
 
+//get non ' ' character
+
 void get_char(void)
 {
 	cin.get(lex);
@@ -31,18 +38,14 @@ void get_char(void)
 }
 
 
-
-
-//Syntax Definitions
-
-//Imply term
-
+//Syntax Function Definitions
 
 
 //Atom
 bool A(){
 	if (lex == 'T'||lex == 'F')
 	{
+		//push atom to stack
 		s.push(lex);
 		get_char();
 		return true;
@@ -66,6 +69,9 @@ bool A(){
 	else
 		return false;
 }
+
+
+//Literal
 
 bool L()
 {
@@ -95,6 +101,8 @@ bool L()
 		return false;
 
 }
+
+//AND tail
 
 bool AT_Tail()
 {
@@ -131,6 +139,7 @@ bool AT_Tail()
 		return false;
 }
 
+//AND Term
 
 bool AT()
 {
@@ -142,6 +151,8 @@ bool AT()
 		else
 			return false;
 }
+
+//Or Tail
 
 bool OT_Tail()
 {
@@ -178,6 +189,7 @@ bool OT_Tail()
 		return false;
 }
 
+//Or Term
 
 bool OT()
 {
@@ -191,6 +203,8 @@ bool OT()
 		else
 			return false;
 }
+
+//Imply Tail
 
 bool IT_Tail()
 {
@@ -234,6 +248,8 @@ bool IT_Tail()
 
 
 }
+
+//Imply Term
 
 bool IT()
 {
