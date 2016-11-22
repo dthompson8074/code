@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : parse.cpp
+// Name        : bool_interpreter.cpp
 // Author      : David Thompson
-// Version     :
-// Copyright   : Your copyright notice
-// Description :
+// Language    : C++
+// Compiler    : GCC C++
+// Description :Source File
 //============================================================================
 
 #include <iostream>
@@ -11,30 +11,24 @@
 
 #include "syntax_semantics.h"
 
-
-
 using namespace std;
 
 
 int main() {
 
+	cout<<"Boolean Interpreter\n"<<"Enter Statement: ";
 
 	get_char();
-	while(lex != '\n'){
 
-		if (B())
-		{
-				cout<<"syntax correct"<<endl;
-				cout << "boolean statement evaluation: "<< s.top()<< endl;
-		}
-		else
-		{
-			cout<<"syntax error"<<endl;
-			break;
-		}
-
-		cin.get(lex);
-
+//Start Function
+	if (B())
+	{
+			cout<<"Syntax Correct"<<endl;
+			cout << "Boolean Statement Evaluation: "<< s.top()<< endl;
 	}
+	else
+		cout<<"Syntax Error"<<endl;
+
+
 	return 0;
 }
