@@ -1,0 +1,11 @@
+;David Thompson
+;11/30/16
+;scheme assignment: problem 2
+
+(define (boolean  x) (< x 5))
+
+(define (filter bool L)
+  (cond ((null? L) '()) ((bool (car L)) (cons (car L) (filter bool (cdr L))))
+        (else (filter bool (cdr L)))))
+      
+(filter boolean   '(3 9 5 8 2 4 7))
