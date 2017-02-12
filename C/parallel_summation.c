@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : assignment_1.c
+ Name        : parallel_summation.c
  Author      : david thompson
  Version     :
  Copyright   : Your copyright notice
@@ -34,7 +34,7 @@ void summation(int *a,int *sum,int *total,int *proc){
     for(int i = 0; i < 1200;i++){
         *sum = *sum + a[i];
     }
-    printf("process %d local sum: %d\n",*proc,*sum);
+   
     *total = *total + *sum;
 }
 
@@ -119,6 +119,9 @@ int main(int argc, char* argv[]){
         /*compute sum of last row*/
           summation(row,&local_sum,&local_total,&my_rank);
         }
+    
+    /*display local total sums*/
+    printf("process %d local sum: %d\n",my_rank,local_total);
     
     /* combine everyone's calculations */
     MPI_Reduce(&local_total, &total_sum, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
