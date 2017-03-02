@@ -19,14 +19,23 @@ y = np.random.rand(N)
 colors = np.random.rand(3)
 area = np.pi * (15 * np.random.rand(N))**2  # 0 to 15 point radii
 
-z = [.5,.7,.9]
-w = [.5,.7,.9]
+N = 3
+z = np.random.rand(N)
+w = np.random.rand(N)
 
 i =0
-
-while(i < 25):
-    plt.scatter(x, y, alpha=0.5)
-    plt.scatter(z,w,c=colors)
-    plt.show()
-    time.sleep(2)
+plt.scatter(x, y, alpha=0.5)
+plt.scatter(z,w,c=colors)
+plt.ion()
+plt.clf()
+while(i < 5):
+    z = np.random.rand(N)
+    w = np.random.rand(N)
+    plt.scatter(x, y, color = 'black')
+    plt.scatter(z,w,color = 'red')
+    plt.draw()
+    plt.pause(1)
+    plt.clf()
+    
+   
     i+=1
