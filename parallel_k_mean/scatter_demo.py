@@ -13,7 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 
-N = 50
+N = 1000
 x = np.random.rand(N)
 y = np.random.rand(N)
 colors = np.random.rand(3)
