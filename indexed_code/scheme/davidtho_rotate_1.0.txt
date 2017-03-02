@@ -1,0 +1,13 @@
+;David Thompson
+;11/30/15
+;scheme assignment: problem 1
+
+(define L '())
+(define rotate (lambda(lis)
+      (cond ((=  (length lis) (length L)) L)
+            (else 
+                  (set! L (append (cons (append (cdr lis) 
+                                                (list (car lis))) () ) L))
+                  (rotate(car L))))))
+                
+(rotate '(a b c d e))
