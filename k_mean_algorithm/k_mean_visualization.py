@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import time
 import math 
 
+np.random.RandomState()
 # Distance function
 def distance(xi,xii,yi,yii):
     sq1 = (xi-xii)*(xi-xii)
@@ -23,9 +24,9 @@ def distance(xi,xii,yi,yii):
 
 #k-mean parameters
 dim = 2
-N = 4800
+N = 7200
 nxdim = 2400
-k = 5
+k = 6
 kxdim = 8
 precision = .001
 
@@ -47,7 +48,8 @@ y = np.random.rand(N)
 
 #clusters
 #colors_cluster = ['red','green','blue','orange']
-colors_cluster = ['red','green','blue','orange','black']
+colors_cluster = ['red','green','blue','orange','black','purple']
+#colors_cluster = np.random.rand(k)*10
 z = np.random.rand(k)
 w = np.random.rand(k)
 for i in range(len(x)):
@@ -79,7 +81,7 @@ while(count < 500):
         color_assign[i] = colors_cluster[close_k]
 
     
-    plt.scatter(x, y, c= color_assign,alpha=0.3 )
+    plt.scatter(x, y, c= color_assign,alpha=0.2)
     plt.scatter(z,w,c=colors_cluster, s=200)
     plt.draw()
     plt.pause(.2)
@@ -105,7 +107,7 @@ while(count < 500):
     
     
     
-plt.scatter(x, y, c= color_assign,alpha=0.3 )
+plt.scatter(x, y, c= color_assign,alpha=0.2 )
 plt.scatter(z,w,c=colors_cluster, s=200)
 plt.draw()
 plt.pause(10)   
