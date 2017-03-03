@@ -24,7 +24,7 @@ def distance(xi,xii,yi,yii):
 
 #k-mean parameters
 dim = 2
-N = 7200
+N = 8000
 nxdim = 2400
 k = 6
 kxdim = 8
@@ -59,6 +59,7 @@ for i in range(len(x)):
 #initialize plot
 plt.scatter(x, y, c= color_assign,alpha=0.3)
 plt.scatter(z,w, c=colors_cluster, s=200)
+plt.title('k - means clustering')
 plt.ion()
 plt.pause(5)
 plt.clf()
@@ -83,6 +84,7 @@ while(count < 500):
     
     plt.scatter(x, y, c= color_assign,alpha=0.2)
     plt.scatter(z,w,c=colors_cluster, s=200)
+    plt.title('k - means clustering')
     plt.draw()
     plt.pause(.2)
     plt.clf()
@@ -105,9 +107,10 @@ while(count < 500):
     if (flag == 1):
         break
     
-    
+   
     
 plt.scatter(x, y, c= color_assign,alpha=0.2 )
 plt.scatter(z,w,c=colors_cluster, s=200)
+plt.title('k - means clustering')
 plt.draw()
 plt.pause(10)   
